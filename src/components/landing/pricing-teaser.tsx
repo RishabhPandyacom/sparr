@@ -44,7 +44,7 @@ export function PricingTeaser() {
     <section id="pricing" className="mx-auto max-w-[1240px] px-5 pt-20 sm:px-7 sm:pt-24">
       <div className="text-center">
         <span className="font-mono-label text-xs font-bold uppercase tracking-[0.14em] text-purple">
-          06 — Pricing
+          05 — Pricing
         </span>
         <h2 className="mt-3 font-display text-[34px] font-extrabold leading-none tracking-[-0.03em] sm:text-[44px] lg:text-[52px]">
           Simple pricing, priced by interviews

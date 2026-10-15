@@ -55,8 +55,7 @@ export function WaitlistSection({ waitlistCount }: { waitlistCount: number }) {
   const [stage, setStage] = useState(stages[1]);
   const [goals, setGoals] = useState<string[]>(["Mock interviews"]);
 
-  const displayCount = waitlistCount > 0 ? waitlistCount : 128;
-  const pct = Math.min(96, Math.max(8, Math.round((displayCount / 500) * 100)));
+  const displayCount = waitlistCount;
 
   function toggleGoal(g: string) {
     setGoals((gs) => (gs.includes(g) ? gs.filter((x) => x !== g) : [...gs, g]));
@@ -68,7 +67,7 @@ export function WaitlistSection({ waitlistCount }: { waitlistCount: number }) {
         {/* Info panel */}
         <div className="flex flex-col rounded-[28px] border-2 border-ink bg-ink p-8 text-cream shadow-[8px_8px_0_var(--color-lime)] sm:p-9">
           <span className="font-mono-label text-xs font-bold uppercase tracking-[0.14em] text-lime">
-            07 — Early access
+            06 — Early access
           </span>
           <h2 className="mt-3.5 text-balance font-display text-3xl font-extrabold leading-[1.05] tracking-[-0.03em] sm:text-[40px]">
             The job board that applies for you.
@@ -82,21 +81,12 @@ export function WaitlistSection({ waitlistCount }: { waitlistCount: number }) {
           <div className="mt-auto flex flex-col gap-3.5 pt-7">
             <div className="flex items-center gap-3 rounded-2xl border-2 border-[#3A3550] px-4 py-3.5">
               <span className="font-display text-2xl font-extrabold text-lime">
-                {displayCount.toLocaleString("en-IN")}
+                {displayCount > 0 ? displayCount.toLocaleString("en-AU") : "New"}
               </span>
               <span className="text-sm text-[#BDB6CC]">
-                students already on the list
+                {displayCount > 0 ? "students on the list" : "Be among the first to join the list"}
               </span>
             </div>
-            <div className="h-3 overflow-hidden rounded-full border-2 border-[#3A3550] bg-[#3A3550]">
-              <div
-                className="h-full bg-[linear-gradient(90deg,var(--color-pink),var(--color-amber),var(--color-lime))]"
-                style={{ width: `${pct}%` }}
-              />
-            </div>
-            <span className="font-mono-label text-xs text-text-muted-2">
-              {pct}% of early-access seats claimed
-            </span>
           </div>
         </div>
 

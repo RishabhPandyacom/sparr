@@ -102,10 +102,10 @@ function InclusiveVisual() {
       />
       <div className="absolute bottom-0 right-0 flex h-[110px] w-[40%] flex-col justify-center rounded-2xl border-2 border-ink bg-lime p-3.5 shadow-[5px_5px_0_var(--color-ink)]">
         <span className="font-display text-3xl font-extrabold leading-none">
-          1 in 3
+          Yours
         </span>
         <span className="mt-1 text-[13px] font-semibold leading-tight">
-          of our users are first in their family to graduate
+          Export or delete your data any time
         </span>
       </div>
     </div>

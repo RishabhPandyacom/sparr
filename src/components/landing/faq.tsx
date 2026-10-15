@@ -34,7 +34,7 @@ export function Faq() {
     <section id="faq" className="mx-auto max-w-[900px] px-5 pt-20 sm:px-7 sm:pt-24">
       <div className="text-center">
         <span className="font-mono-label text-xs font-bold uppercase tracking-[0.14em] text-purple">
-          08 — FAQ
+          07 — FAQ
         </span>
         <h2 className="mt-3 mb-10 font-display text-[32px] font-extrabold leading-none tracking-[-0.03em] sm:text-[40px] lg:text-[48px]">
           Questions, answered honestly

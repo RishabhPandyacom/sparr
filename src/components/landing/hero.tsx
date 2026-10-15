@@ -1,10 +1,7 @@
 import { ArrowRight, MessageSquareCode } from "lucide-react";
 import { BrandButton } from "./brand-button";
 
-const avatarColors = ["bg-purple text-white", "bg-cyan text-ink", "bg-amber text-ink"];
-
-export function Hero({ waitlistCount }: { waitlistCount: number }) {
-  const displayCount = waitlistCount > 0 ? waitlistCount : 128;
+export function Hero() {
 
   return (
     <section
@@ -47,32 +44,15 @@ export function Hero({ waitlistCount }: { waitlistCount: number }) {
           </BrandButton>
         </div>
 
-        <div className="mt-8 flex items-center gap-4">
-          <div className="flex">
-            {avatarColors.map((c, i) => (
-              <span
-                key={i}
-                style={{ marginLeft: i === 0 ? 0 : -12 }}
-                className={`flex size-11 items-center justify-center rounded-full border-2 border-ink font-display text-sm font-extrabold ${c}`}
-              >
-                <MessageSquareCode className="size-4.5" />
-              </span>
-            ))}
-            <span
-              style={{ marginLeft: -12 }}
-              className="flex size-11 items-center justify-center rounded-full border-2 border-ink bg-pink text-xs font-extrabold text-white"
-            >
-              +{displayCount > 999 ? `${Math.floor(displayCount / 1000)}k` : displayCount}
-            </span>
-          </div>
+        <div className="mt-8 flex items-center gap-3">
+          <span className="flex size-11 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-lime">
+            <MessageSquareCode className="size-4.5" />
+          </span>
           <div className="text-sm leading-tight text-text-secondary">
-            <strong className="text-ink">
-              {displayCount.toLocaleString("en-IN")}+ students
-            </strong>{" "}
-            on the waitlist
+            <strong className="text-ink">Rule-based and transparent.</strong>
             <br />
             <span className="font-mono-label text-xs">
-              ★★★★★ built with real interview rubrics
+              Every score shows its working. Your data stays yours.
             </span>
           </div>
         </div>
@@ -118,12 +98,12 @@ function HeroVisual() {
         className="brand-float absolute left-[-14px] top-9 w-[168px] rounded-2xl border-2 border-ink bg-white p-3.5 shadow-[4px_4px_0_var(--color-ink)] sm:left-[-30px]"
       >
         <div className="font-mono-label text-[11px] font-bold uppercase tracking-wider text-purple">
-          Offer accepted
+          Sample output
         </div>
         <div className="mt-0.5 font-display text-xl font-extrabold">
-          +22% negotiated
+          Ask A$94,000
         </div>
-        <div className="text-xs text-text-secondary">with a negotiation script</div>
+        <div className="text-xs text-text-secondary">from a six-line script</div>
       </div>
 
       <div
@@ -131,11 +111,11 @@ function HeroVisual() {
         className="brand-float absolute bottom-[70px] right-[-14px] rounded-2xl border-2 border-ink bg-lime p-3.5 shadow-[4px_4px_0_var(--color-ink)] sm:right-[-26px]"
       >
         <div className="font-mono-label text-[11px] font-bold uppercase tracking-wider">
-          Interview score
+          Sample readiness score
         </div>
         <div className="flex items-baseline gap-1.5">
-          <span className="font-display text-2xl font-extrabold">86</span>
-          <span className="text-xs font-bold">/100 · up 31 pts</span>
+          <span className="font-display text-2xl font-extrabold">43</span>
+          <span className="text-xs font-bold">/100 · getting started</span>
         </div>
       </div>
 
