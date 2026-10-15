@@ -1,87 +1,92 @@
 # Sparr
 
-A career suite for students and early-career job seekers — résumé and CV
-studio, cover letters, mock interviews, salary negotiation, and a job-board
-waitlist.
+A career suite for students and early-career job seekers. Build a **career plan**
+(résumé readiness score → salary range → negotiation script → action plan), track
+**applications** through a pipeline, and use the résumé studio, cover letters and
+mock interviews around it. Built for BUS4012 (Assignment 3).
 
-Runs **entirely offline**: local Supabase for data and auth, mock providers for
-AI, billing and email. No third-party API keys required, and no external calls
-are made.
+Every score, estimate and script is produced by transparent **rule-based
+engines**, not a language model. Each result shows its working, and anything the
+product cannot know (your results, your numbers) is left as a visible prompt for
+you to fill in.
 
-**Stack** — Next.js 16 (App Router) · Supabase (Postgres + Auth + RLS) ·
-Tailwind CSS v4 · shadcn built on Base UI · TypeScript.
+## Architecture
 
----
-
-## Getting started
-
-Requires Node 20+ and Docker Desktop.
-
-```bash
-open -a Docker          # or start Docker Desktop by hand
-npm install             # only if node_modules is missing
-npx supabase start      # first run pulls images; a few minutes
-npm run db:reset        # apply migrations + seed
-npm run dev             # http://localhost:3000
+```
+React (Next.js 16, Vercel) ──Bearer JWT──▶ FastAPI (Python, Vercel) ──JWT + anon key──▶ Supabase
+        │                                        │                                       Postgres + RLS
+        └────── Supabase Auth (sign up / in) ────┘
 ```
 
-Then sign up at `/signup`. Confirmation emails are captured locally by Mailpit at
-http://127.0.0.1:54324 — nothing is sent to a real inbox.
+- **Frontend** `src/` — Next.js App Router, React 19, Tailwind v4, shadcn on Base UI.
+  Signs users in with Supabase Auth, then calls the Python API with the session token.
+- **Backend** `backend/` — FastAPI. Verifies the token with Supabase, runs the engines
+  and reads/writes the database **as the user** (their JWT + the public anon key), so
+  Postgres row-level security enforces ownership even if application code had a bug.
+  The service-role key is used for exactly one thing: deleting an account on request.
+- **Database** `supabase/migrations/` — Postgres schema with RLS policies on every table.
+  `career_plans` and `applications` are owner-only (`auth.uid() = user_id`).
 
-| Service | URL |
-|---|---|
-| App | http://localhost:3000 |
-| Supabase Studio | http://127.0.0.1:54323 |
-| Mailpit (emails) | http://127.0.0.1:54324 |
-| Supabase API | http://127.0.0.1:54321 |
+### Credential management
 
-`.env.local` ships with the standard local Supabase demo keys. They are
-development-only and safe on your machine; see `.env.example` for what each
-variable does.
+| Secret | Where it lives | Exposed to browser? |
+|---|---|---|
+| Supabase anon key / URL | Vercel env (frontend + backend) | Yes by design (RLS-protected) |
+| Supabase service-role key | Vercel env of the **backend** (and server-only frontend var) | **Never** |
+| Database password | Not in the app at all; used only to apply migrations from a dev machine | No |
 
-## Scripts
+`.env*` files are git-ignored; `.env.example` and `backend/.env.example` list every variable.
 
-| Command | Purpose |
-|---|---|
-| `npm run dev` | Dev server |
-| `npm run build` | Production build (also a full type-check) |
-| `npm run lint` | ESLint |
-| `npm run db:start` / `db:stop` | Supabase stack up / down |
-| `npm run db:reset` | Re-run migrations + seed — **wipes local data** |
-| `npm run db:types` | Regenerate Supabase TypeScript types after a schema change |
+## Run locally
 
----
+Requires Node 20+, Python 3.11+, and a Supabase project (hosted or `npx supabase start`).
 
-## What's in it
+```bash
+# 1. Frontend
+cp .env.example .env.local      # fill in your Supabase URL + anon key
+npm install
+npm run dev                     # http://localhost:3000
 
-**Résumé & CV studio** — 26 résumé styles and 12 academic CV styles. Type a
-target role and get a complete first draft: summary, dated roles with quantified
-bullet patterns, role-appropriate skills, and the sections that role expects
-(publications for researchers, certifications for clinicians, a portfolio for
-designers). Then edit everything directly on the page.
+# 2. Backend (second terminal)
+cd backend
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements-dev.txt
+cp .env.example .env            # same Supabase values (+ service-role key)
+uvicorn app.main:app --reload   # http://localhost:8000/docs
+pytest                          # 23 tests: engines, API, data isolation
+```
 
-- Live résumé score with a traceable rubric — every point maps to a named check
-- Job-description keyword matching, with per-term add
-- Rule-based bullet rewriting that shows its reasoning before you accept it
-- Sections you can reorder, rename, hide, move between columns or invent
-- Undo/redo, version snapshots, page-break guides, zoom
-- Export to PDF, Word, ATS plain text, Markdown, HTML and JSON
-- Public read-only share links
-- Paste-to-import an existing résumé, and a reusable bullet library
+Apply the schema once: `python scripts/db_apply.py` (reads `SUPABASE_DB_HOST`,
+`SUPABASE_DB_USER`, `SUPABASE_DB_PASSWORD` from the environment) or paste
+`supabase/migrations/*.sql` then `supabase/seed.sql` into the Supabase SQL editor.
 
-**Cover letters** · generated against a job description and editable.
-**Mock interviews** · chat, multiple-choice and coding rounds with feedback.
-**Salary negotiator** · rule-based estimate plus a negotiation script.
-**Notifications, pricing and billing** · scaffolded against mock providers.
+## Deploy (Vercel)
 
----
+Two Vercel projects from this one repo:
 
-## Working on it
+| Project | Root directory | Environment variables |
+|---|---|---|
+| `sparr` (frontend) | `/` | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `NEXT_PUBLIC_API_URL` (the backend URL), `SUPABASE_SERVICE_ROLE_KEY` (optional, waitlist) |
+| `sparr-api` (backend) | `backend` | `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `CORS_ORIGINS` (the frontend URL) |
 
-`AGENTS.md` is the engineering handbook — architecture, conventions, constraints
-and the gotchas that have caused real bugs. Read it before making changes; it's
-also what Claude Code reads at the start of every session.
+Then in Supabase → Authentication → URL Configuration set the Site URL and a
+redirect URL (`<frontend>/auth/callback`) to the deployed frontend.
 
-For design work, the entire visual system is `src/lib/resume/design.ts`. All 38
-templates are configuration objects; restyling or adding one requires no
-component code.
+## Privacy and data rights
+
+Consent to the privacy notice is required at signup and stored with a version
+(`profiles.privacy_consent_*`). Settings → Privacy & data lets a user download
+everything held about them as JSON (`GET /api/me/export`) or permanently delete
+the account (`DELETE /api/me`), modelled on Australian Privacy Principles 11–13.
+
+## Project layout
+
+```
+src/app/(auth)/ (dashboard)/   screens
+src/components/plan/           career plan wizard (form kit, stepper, summary)
+src/lib/api/                   typed client for the Python API
+backend/app/engines/           readiness, salary, script, plan (pure, tested)
+backend/app/routers/           career_plans, applications, tools, account
+supabase/migrations/           schema + RLS
+AGENTS.md                      engineering handbook for contributors
+```
