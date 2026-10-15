@@ -42,7 +42,7 @@ export function InclusiveSection() {
               Every kind of person. Every kind of path.
             </h2>
             <p className="mt-4.5 max-w-[520px] text-[17px] leading-relaxed text-text-secondary">
-              Hiring was never built for all of us. CareerCopilot is.
+              Hiring was never built for all of us. Sparr is.
               We&apos;re proudly inclusive — LGBTQIA+ friendly, and built with
               the people who usually get left out of &ldquo;career
               advice&rdquo; — because the job market is hard enough without

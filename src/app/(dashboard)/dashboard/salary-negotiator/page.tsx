@@ -8,7 +8,7 @@ export default async function SalaryNegotiatorPage() {
     <div className="mx-auto max-w-4xl">
       <PageHeader
         title="Salary Negotiator"
-        description="Estimate your market range, then get an AI script to ask for more."
+        description="Estimate your market range, then get a six-line script to ask for more."
       />
       <SalaryCalculator />
     </div>

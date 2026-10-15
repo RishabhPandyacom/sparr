@@ -7,15 +7,15 @@ import { cn } from "@/lib/utils";
 const faqs = [
   {
     q: "Is it actually free to start?",
-    a: "Yes. The Starter plan gives you two mock interviews, a resume with PDF export and three cover letters every month — no card, no trial countdown. If money is the blocker entirely, email us and we'll hand you a scholarship seat. No forms, no proving it.",
+    a: "Yes. The Starter plan gives you three mock interviews, a resume with PDF export and three cover letters every month — no card, no trial countdown. If money is the blocker entirely, email us and we'll hand you a scholarship seat. No forms, no proving it.",
   },
   {
-    q: "Will an interviewer know I used AI?",
-    a: "They'll know you prepared. Everything you generate is a starting draft in your voice — you edit it, we never auto-submit anything anywhere, and the mock feedback is about how you answer, not about copying a script.",
+    q: "Is Sparr an AI chatbot?",
+    a: "No, and we say so on purpose. Sparr's tools are transparent, rule-based engines: every résumé score point, salary multiplier and script line traces back to a named rule you can read. Nothing is sent to an external language model, nothing is auto-submitted, and anything we cannot know (like your results) is left as a visible prompt for you to fill in.",
   },
   {
     q: "How is this different from a generic chatbot?",
-    a: "A generic chatbot gives you an answer and forgets you exist. CareerCopilot remembers your role, your resume versions, your past mock rounds and your weak spots, then scores you against real interview rubrics and tracks the improvement.",
+    a: "A generic chatbot gives you an answer and forgets you exist. Sparr keeps one career plan per goal, saves it to your private account, shows how each number was reached, and tracks your applications alongside it.",
   },
   {
     q: "Do you support pronouns and chosen names?",

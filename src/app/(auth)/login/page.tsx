@@ -37,7 +37,7 @@ function LoginForm() {
     <Card>
       <CardHeader>
         <CardTitle className="text-xl">Welcome back</CardTitle>
-        <CardDescription>Log in to your CareerCopilot account.</CardDescription>
+        <CardDescription>Log in to your Sparr account.</CardDescription>
       </CardHeader>
       <form action={formAction}>
         <CardContent className="grid gap-4">

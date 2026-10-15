@@ -48,7 +48,7 @@ export function PublicResume({
           <span className="flex size-7 items-center justify-center rounded-lg bg-primary text-primary-foreground">
             <Sparkles className="size-3.5" />
           </span>
-          CareerCopilot
+          Sparr
         </Link>
         <span className="hidden text-sm text-muted-foreground sm:inline">
           Shared {content.docType === "cv" ? "CV" : "résumé"}
@@ -74,7 +74,7 @@ export function PublicResume({
       <footer data-share-chrome className="pb-10 text-center text-xs text-muted-foreground">
         Built with{" "}
         <Link href="/" className="underline underline-offset-2 hover:text-foreground">
-          CareerCopilot
+          Sparr
         </Link>
       </footer>
     </div>

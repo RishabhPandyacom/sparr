@@ -58,10 +58,27 @@ export default function SignupPage() {
               name="password"
               type="password"
               autoComplete="new-password"
-              placeholder="At least 6 characters"
+              placeholder="At least 8 characters"
+              minLength={8}
               required
             />
           </div>
+          <label className="flex items-start gap-3 rounded-xl border-2 border-ink bg-white p-3 text-sm leading-snug">
+            <input
+              type="checkbox"
+              name="consent"
+              required
+              className="mt-0.5 size-4 shrink-0 accent-[var(--brand-purple)]"
+            />
+            <span>
+              I have read the{" "}
+              <Link href="/privacy" target="_blank" className="font-bold text-purple underline">
+                privacy notice
+              </Link>{" "}
+              and agree that Sparr stores the career details I enter in order to
+              run its tools.
+            </span>
+          </label>
           {state?.error && (
             <p className="text-sm text-destructive">{state.error}</p>
           )}

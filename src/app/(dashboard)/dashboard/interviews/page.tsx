@@ -33,7 +33,7 @@ export default async function InterviewsPage() {
     <div className="mx-auto max-w-5xl">
       <PageHeader
         title="Mock Interviews"
-        description="Human-like AI practice: chat, MCQ, and live coding rounds."
+        description="Practice chat, MCQ and live coding rounds with a scored rubric."
       >
         <Button asChild>
           <Link href="/dashboard/interviews/new">

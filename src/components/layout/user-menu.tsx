@@ -30,8 +30,8 @@ export function UserMenu({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="flex items-center gap-2 rounded-full outline-none">
-        <Avatar className="size-8">
-          <AvatarFallback className="text-xs">{initials}</AvatarFallback>
+        <Avatar className="size-10 border-2 border-ink shadow-[2px_2px_0_var(--brand-ink)]">
+          <AvatarFallback className="bg-lime text-xs font-bold text-ink">{initials}</AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">

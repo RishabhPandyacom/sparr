@@ -1,6 +1,6 @@
-# CareerCopilot
+# Sparr
 
-An AI career co-pilot for students and early-career job seekers — résumé and CV
+A career suite for students and early-career job seekers — résumé and CV
 studio, cover letters, mock interviews, salary negotiation, and a job-board
 waitlist.
 

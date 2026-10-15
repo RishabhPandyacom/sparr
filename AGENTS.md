@@ -6,10 +6,11 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ---
 
-# CareerCopilot — agent handbook
+# Sparr — agent handbook
 
-An AI career co-pilot for students and early-career job seekers. Next.js 16 (App
-Router) + Supabase (Postgres, Auth, RLS) + Tailwind v4 + shadcn-on-Base-UI.
+A career suite for students and early-career job seekers. Next.js 16 (App
+Router) frontend + Python FastAPI backend (`backend/`) + Supabase (Postgres, Auth,
+RLS) + Tailwind v4 + shadcn-on-Base-UI.
 
 Read this file before touching anything. It is the whole onboarding — everything
 a new session needs is here or in the repo. Nothing lives outside this folder.

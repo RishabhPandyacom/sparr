@@ -14,7 +14,7 @@
   --font-body: var(--font-body);
   --font-mono-label: var(--font-mono-label);
 
-  /* Brand tokens — CareerCopilot neobrutalist system (design/gen-z-landing) */
+  /* Brand tokens — Sparr neobrutalist system (design/gen-z-landing) */
   --color-ink: var(--brand-ink);
   --color-cream: var(--brand-cream);
   --color-cream-app: var(--brand-cream-app);
@@ -99,38 +99,38 @@
   --brand-text-muted: #5a5468;
   --brand-text-muted-2: #8b839f;
 
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  --background: var(--brand-cream-app);
+  --foreground: var(--brand-ink);
+  --card: #ffffff;
+  --card-foreground: var(--brand-ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--brand-ink);
   --primary: var(--brand-purple);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
+  --primary-foreground: #ffffff;
+  --secondary: var(--brand-surface);
+  --secondary-foreground: var(--brand-ink);
+  --muted: var(--brand-surface);
+  --muted-foreground: var(--brand-text-muted);
+  --accent: #ece3ff;
+  --accent-foreground: var(--brand-ink);
+  --destructive: #c4143c;
+  --border: var(--brand-ink);
+  --input: var(--brand-ink);
   --ring: var(--brand-purple);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --chart-1: var(--brand-purple);
+  --chart-2: var(--brand-pink);
+  --chart-3: var(--brand-cyan);
+  --chart-4: var(--brand-amber);
+  --chart-5: var(--brand-lime);
+  --radius: 0.875rem;
+  --sidebar: var(--brand-ink);
+  --sidebar-foreground: #fff6ec;
+  --sidebar-primary: var(--brand-lime);
+  --sidebar-primary-foreground: var(--brand-ink);
+  --sidebar-accent: #2a2638;
+  --sidebar-accent-foreground: #fff6ec;
+  --sidebar-border: #2a2638;
+  --sidebar-ring: var(--brand-lime);
 }
 
 .dark {
@@ -179,7 +179,7 @@
   }
 }
 
-/* Brand motion — signature CareerCopilot keyframes (marquee/float/blink/spin).
+/* Brand motion — signature Sparr keyframes (marquee/float/blink/spin).
    Apply via the .brand-* utility classes below, which each carry a built-in
    prefers-reduced-motion fallback (no separate class needed at the call site). */
 @keyframes om-marquee {
@@ -235,5 +235,49 @@
   .brand-spin {
     animation: none !important;
     transform: none !important;
+  }
+}
+
+/* ---- Sparr signature surfaces ------------------------------------------- */
+.sticker {
+  border: 2px solid var(--brand-ink);
+  box-shadow: 4px 4px 0 var(--brand-ink);
+}
+.sticker-lg {
+  border: 2px solid var(--brand-ink);
+  box-shadow: 8px 8px 0 var(--brand-ink);
+}
+.mono-label {
+  font-family: var(--font-mono-label), ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.6875rem;
+  font-weight: 700;
+}
+
+/* Animated beam around the plan card (reduced-motion safe). */
+@property --beam-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes sparr-beam {
+  to {
+    --beam-angle: 360deg;
+  }
+}
+.beam-card {
+  position: relative;
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    conic-gradient(from var(--beam-angle), var(--brand-purple), var(--brand-lime), var(--brand-pink), var(--brand-cyan), var(--brand-purple)) border-box;
+  border: 3px solid transparent;
+  animation: sparr-beam 6s linear infinite;
+  box-shadow: 8px 8px 0 var(--brand-ink);
+}
+@media (prefers-reduced-motion: reduce) {
+  .beam-card {
+    animation: none;
   }
 }

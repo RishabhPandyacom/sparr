@@ -32,9 +32,9 @@ export function Hero({ waitlistCount }: { waitlistCount: number }) {
         </h1>
 
         <p className="mt-6 max-w-[520px] text-pretty text-lg leading-relaxed text-text-secondary sm:text-[19px]">
-          Mock interviews that feel human. Resumes that pass the bots. Cover
-          letters that sound like you. Salary scripts that actually work. One
-          co-pilot for the entire job hunt.
+          Practice interviews with honest feedback. A résumé score you can trace
+          line by line. A salary range with its working shown. One career plan,
+          one tracker, one place for the whole job hunt.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3.5">
@@ -123,7 +123,7 @@ function HeroVisual() {
         <div className="mt-0.5 font-display text-xl font-extrabold">
           +22% negotiated
         </div>
-        <div className="text-xs text-text-secondary">with the AI script</div>
+        <div className="text-xs text-text-secondary">with a negotiation script</div>
       </div>
 
       <div

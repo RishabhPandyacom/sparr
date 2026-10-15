@@ -24,7 +24,7 @@ export default async function PricingPage() {
             <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
               <Sparkles className="size-4" />
             </span>
-            CareerCopilot
+            Sparr
           </Link>
           <Button asChild>
             <Link href={user ? "/dashboard" : "/signup"}>

@@ -9,7 +9,7 @@ export default function NotFound() {
         <span className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
           <Sparkles className="size-5" />
         </span>
-        <span className="text-lg">CareerCopilot</span>
+        <span className="text-lg">Sparr</span>
       </Link>
       <div>
         <p className="text-5xl font-bold tracking-tight">404</p>

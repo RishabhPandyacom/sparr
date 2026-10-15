@@ -3,14 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navItems } from "@/lib/nav";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
-export function SidebarNav() {
+export function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname();
 
   return (
-    <nav className="flex flex-col gap-1 px-3">
+    <nav aria-label="Main" className="flex flex-col gap-1 px-3">
       {navItems.map((item) => {
         const active =
           item.href === "/dashboard"
@@ -20,22 +19,26 @@ export function SidebarNav() {
           <Link
             key={item.href}
             href={item.href}
+            onClick={onNavigate}
+            aria-current={active ? "page" : undefined}
             className={cn(
-              "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+              "flex items-center gap-3 rounded-full px-4 py-2.5 text-sm font-semibold transition-colors",
               active
-                ? "bg-primary text-primary-foreground"
-                : "text-muted-foreground hover:bg-muted hover:text-foreground",
+                ? "bg-lime text-ink"
+                : "text-cream/70 hover:bg-white/10 hover:text-cream",
             )}
           >
-            <item.icon className="size-4 shrink-0" />
+            <item.icon className="size-4 shrink-0" strokeWidth={2.25} />
             <span className="flex-1">{item.title}</span>
             {item.badge && (
-              <Badge
-                variant={active ? "secondary" : "outline"}
-                className="text-[10px]"
+              <span
+                className={cn(
+                  "rounded-full border px-2 py-0.5 font-mono-label text-[9px] font-bold uppercase tracking-wider",
+                  active ? "border-ink/40" : "border-cream/30",
+                )}
               >
                 {item.badge}
-              </Badge>
+              </span>
             )}
           </Link>
         );

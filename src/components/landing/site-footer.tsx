@@ -40,7 +40,7 @@ export function SiteFooter() {
             <span className="flex size-9 items-center justify-center rounded-xl border-2 border-cream bg-purple">
               <Sparkles className="size-4.5 text-cream" />
             </span>
-            CareerCopilot
+            Sparr
           </span>
           <p className="mt-4 max-w-[280px] text-[14.5px] leading-relaxed text-[#BDB6CC]">
             Made for Gen Z, by Gen Z. Inclusive by default, first-gen
@@ -73,8 +73,8 @@ export function SiteFooter() {
         ))}
       </div>
       <div className="mx-auto flex max-w-[1240px] flex-wrap items-center justify-between gap-5 border-t border-[#3A3550] px-5 py-6 text-[13.5px] text-text-muted-2 sm:px-7">
-        <span>© {new Date().getFullYear()} CareerCopilot. All rights reserved.</span>
-        <span className="font-mono-label">Built by CareerCopilot</span>
+        <span>© {new Date().getFullYear()} Sparr. All rights reserved.</span>
+        <span className="font-mono-label">Built by Sparr</span>
       </div>
     </footer>
   );

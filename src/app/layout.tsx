@@ -22,9 +22,9 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CareerCopilot — Your AI co-pilot for the job hunt",
+  title: "Sparr — The career suite for students and early-career job seekers",
   description:
-    "AI mock interviews, resume builder, cover letters, salary negotiation, and more — everything students need to land the job.",
+    "A career plan, résumé readiness score, salary estimator, negotiation script and application tracker for students and early-career job seekers.",
 };
 
 export default function RootLayout({

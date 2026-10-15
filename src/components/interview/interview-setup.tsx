@@ -13,7 +13,7 @@ const modes = [
     value: "chat",
     icon: MessageSquare,
     title: "Behavioral chat",
-    body: "Conversational Q&A with AI follow-ups and end-of-session feedback.",
+    body: "Conversational Q&A with rule-based follow-ups and end-of-session feedback.",
   },
   {
     value: "mcq",
@@ -25,7 +25,7 @@ const modes = [
     value: "coding",
     icon: Code2,
     title: "Coding challenge",
-    body: "Solve a problem in a live editor; AI reviews your solution.",
+    body: "Solve a problem in a live editor; a rule-based review checks your solution.",
   },
 ];
 

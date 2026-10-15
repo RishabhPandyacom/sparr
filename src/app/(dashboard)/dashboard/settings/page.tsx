@@ -5,6 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import { signOut } from "@/lib/auth/actions";
 import { PageHeader } from "@/components/layout/page-header";
 import { ProfileForm } from "@/components/settings/profile-form";
+import { PrivacyData } from "@/components/settings/privacy-data";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -19,7 +20,7 @@ export default async function SettingsPage() {
   const supabase = await createClient();
   const { data: profile } = await supabase
     .from("profiles")
-    .select("full_name, headline, target_role")
+    .select("full_name, headline, target_role, privacy_consent_at, privacy_consent_version")
     .eq("id", user.id)
     .single();
 
@@ -31,7 +32,7 @@ export default async function SettingsPage() {
         <CardHeader>
           <CardTitle className="text-base">Profile</CardTitle>
           <CardDescription>
-            This info personalizes your AI features (resumes, cover letters).
+            This info personalises your résumé and cover-letter drafts.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -61,6 +62,19 @@ export default async function SettingsPage() {
               Sign out
             </Button>
           </form>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-base">Privacy &amp; data</CardTitle>
+          <CardDescription>Your data, your call: take a copy or erase it.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <PrivacyData
+            consentVersion={profile?.privacy_consent_version ?? null}
+            consentAt={profile?.privacy_consent_at ?? null}
+          />
         </CardContent>
       </Card>
     </div>

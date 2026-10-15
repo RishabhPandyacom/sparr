@@ -21,7 +21,7 @@ const REASON_LABEL: Record<string, string> = {
   autosave: "Autosaved",
   template: "Generated",
   import: "Imported",
-  ai: "AI edit",
+  ai: "Assisted edit",
 };
 
 /**

@@ -24,7 +24,7 @@ export async function SiteHeader() {
           <span className="flex size-9.5 items-center justify-center rounded-xl border-2 border-ink bg-purple shadow-[3px_3px_0_var(--color-ink)]">
             <Sparkles className="size-4.5 text-cream" strokeWidth={2} />
           </span>
-          CareerCopilot
+          Sparr
         </Link>
 
         <nav className="hidden items-center gap-1 text-[15px] font-semibold md:flex">

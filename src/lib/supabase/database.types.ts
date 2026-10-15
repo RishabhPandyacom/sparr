@@ -374,6 +374,8 @@ export type Database = {
           full_name: string | null
           headline: string | null
           id: string
+          privacy_consent_at: string | null
+          privacy_consent_version: string | null
           resume_context: Json | null
           target_role: string | null
           updated_at: string
@@ -384,6 +386,8 @@ export type Database = {
           full_name?: string | null
           headline?: string | null
           id: string
+          privacy_consent_at?: string | null
+          privacy_consent_version?: string | null
           resume_context?: Json | null
           target_role?: string | null
           updated_at?: string
@@ -394,6 +398,8 @@ export type Database = {
           full_name?: string | null
           headline?: string | null
           id?: string
+          privacy_consent_at?: string | null
+          privacy_consent_version?: string | null
           resume_context?: Json | null
           target_role?: string | null
           updated_at?: string

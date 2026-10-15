@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { PRIVACY_NOTICE_VERSION } from "@/lib/privacy";
 
 export type AuthResult = { error: string } | undefined;
 
@@ -48,15 +49,26 @@ export async function signUp(
   if (!email || !password) {
     return { error: "Email and password are required." };
   }
-  if (password.length < 6) {
-    return { error: "Password must be at least 6 characters." };
+  if (password.length < 8) {
+    return { error: "Password must be at least 8 characters." };
+  }
+  // Consent is recorded, not assumed: no ticked box, no account.
+  if (formData.get("consent") !== "on") {
+    return {
+      error: "Please read and accept the privacy notice to create an account.",
+    };
   }
 
   const supabase = await createClient();
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
-    options: { data: { full_name: fullName } },
+    options: {
+      data: {
+        full_name: fullName,
+        privacy_consent_version: PRIVACY_NOTICE_VERSION,
+      },
+    },
   });
 
   if (error) {

@@ -8,6 +8,8 @@ import {
   Bell,
   CreditCard,
   Settings,
+  Target,
+  KanbanSquare,
   type LucideIcon,
 } from "lucide-react";
 
@@ -20,6 +22,8 @@ export type NavItem = {
 
 export const navItems: NavItem[] = [
   { title: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
+  { title: "Career Plan", href: "/dashboard/career-plan", icon: Target },
+  { title: "Applications", href: "/dashboard/applications", icon: KanbanSquare },
   { title: "Résumés & CVs", href: "/dashboard/resumes", icon: FileText },
   { title: "Cover Letters", href: "/dashboard/cover-letters", icon: Mail },
   {
