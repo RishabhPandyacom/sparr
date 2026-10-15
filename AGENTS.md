@@ -206,7 +206,24 @@ page is wrong.
 
 ---
 
-## 6. Current state
+## 6. Sparr additions (Assignment 3)
+
+- **Python API** in `backend/` (FastAPI). The frontend calls it through
+  `src/lib/api/client.ts` (browser) and `server.ts` (server components) with the
+  Supabase session token as a Bearer header. The API forwards that token to
+  PostgREST so RLS applies; the service-role key is used only in `routers/account.py`.
+- **Career plan** (`/dashboard/career-plan`): résumé → salary → summary, stored in
+  `career_plans` (migration `0005_sparr_core.sql`). Engines in `backend/app/engines/`
+  are pure functions with tests (`cd backend && pytest`).
+- **Applications** (`/dashboard/applications`): pipeline board over the `applications` table.
+- **Privacy**: consent captured at signup, export/delete in Settings. Keep copy honest:
+  the tools are rule-based, never call them "AI".
+- After editing role data in `src/lib/resume/roleLibrary.ts`, regenerate
+  `backend/app/data/roles.json` with `npx tsx scripts/export-roles.ts`.
+
+---
+
+## 7. Current state
 
 Feature-complete MVP. Auth, résumé/CV studio, cover letters, mock interviews
 (chat / MCQ / coding), job-board waitlist, salary negotiator, notifications,
