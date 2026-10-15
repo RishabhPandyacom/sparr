@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  body { margin:0; background:#F4EDE3; color:#14121C; font-family:'Manrope',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  * { box-sizing:border-box; }
+  a { color:#6C3BFF; text-decoration:none; }
+  a:hover { color:#FF3D8B; }
+  input, textarea, select, button { font-family:inherit; }
+  input:focus, textarea:focus { outline:none; border-color:#6C3BFF !important; box-shadow:0 0 0 4px rgba(108,59,255,0.16) !important; }
+  @keyframes om-blink { 0%,100% { opacity:1; } 50% { opacity:.25; } }
+  ::-webkit-scrollbar { width:10px; height:10px; }
+  ::-webkit-scrollbar-thumb { background:#D9D2C6; border-radius:99px; border:3px solid #F4EDE3; }
+</style>
+</helmet>
+
+<div style="display:flex;min-height:100vh;background:#F4EDE3">
+
+  <aside style="position:sticky;top:0;align-self:flex-start;height:100vh;width:258px;flex:none;background:#14121C;color:#FFF6EC;display:flex;flex-direction:column;padding:20px 0;border-right:2px solid #14121C">
+    <div style="display:flex;align-items:center;gap:10px;padding:0 20px 22px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px">
+      <span style="display:flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:11px;background:#6C3BFF;border:2px solid #FFF6EC">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFF6EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path></svg>
+      </span>
+      CareerCopilot
+    </div>
+
+    <div style="position:relative;padding:0 12px">
+      <div style="position:absolute;left:12px;right:12px;height:42px;border-radius:11px;background:#6C3BFF;transform:translateY(220px);z-index:1"></div>
+      <nav style="position:relative;display:flex;flex-direction:column;gap:2px;z-index:2">
+        <span style="display:flex;align-items:center;gap:12px;height:42px;padding:0 12px;color:#8B839F;font-size:14.5px;font-weight:600;border-radius:11px">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>
+          Dashboard
+        </span>
+        <span style="display:flex;align-items:center;gap:12px;height:42px;padding:0 12px;color:#8B839F;font-size:14.5px;font-weight:600;border-radius:11px">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v5h5"></path><path d="M16 13H8"></path><path d="M16 17H8"></path><path d="M10 9H8"></path></svg>
+          Resume Builder
+        </span>
+        <span style="display:flex;align-items:center;gap:12px;height:42px;padding:0 12px;color:#8B839F;font-size:14.5px;font-weight:600;border-radius:11px">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          Cover Letters
+        </span>
+        <span style="display:flex;align-items:center;gap:12px;height:42px;padding:0 12px;color:#8B839F;font-size:14.5px;font-weight:600;border-radius:11px">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M10 7.5 8 10l2 2.5"></path><path d="m14 7.5 2 2.5-2 2.5"></path><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Mock Interviews
+        </span>
+        <span style="display:flex;align-items:center;gap:12px;height:42px;padding:0 12px;color:#8B839F;font-size:14.5px;font-weight:600;border-radius:11px">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path><rect width="20" height="14" x="2" y="6" rx="2"></rect></svg>
+          Job Board
+          <span style="margin-left:auto;font-family:'Space Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:#C8FF4D;color:#14121C;border-radius:999px;padding:3px 8px">Soon</span>
+        </span>
+        <button type="button" onClick="{{ goList }}" style="display:flex;align-items:center;gap:12px;width:100%;height:42px;padding:0 12px;background:none;border:none;color:#FFF6EC;font-size:14.5px;font-weight:600;text-align:left;cursor:pointer;border-radius:11px">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect width="16" height="20" x="4" y="2" rx="2"></rect><path d="M8 6h8"></path><path d="M16 14v2"></path><path d="M12 10h.01"></path><path d="M8 10h.01"></path><path d="M12 14h.01"></path><path d="M8 14h.01"></path></svg>
+          Salary Negotiator
+        </button>
+        <span style="display:flex;align-items:center;gap:12px;height:42px;padding:0 12px;color:#8B839F;font-size:14.5px;font-weight:600;border-radius:11px">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
+          Notifications
+          <span style="margin-left:auto;display:flex;align-items:center;justify-content:center;min-width:20px;height:20px;border-radius:999px;background:#FF3D8B;color:#fff;font-size:11px;font-weight:800">3</span>
+        </span>
+        <span style="display:flex;align-items:center;gap:12px;height:42px;padding:0 12px;color:#8B839F;font-size:14.5px;font-weight:600;border-radius:11px">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect width="20" height="14" x="2" y="5" rx="2"></rect><path d="M2 10h20"></path></svg>
+          Billing
+        </span>
+        <span style="display:flex;align-items:center;gap:12px;height:42px;padding:0 12px;color:#8B839F;font-size:14.5px;font-weight:600;border-radius:11px">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><circle cx="12" cy="12" r="3"></circle><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path></svg>
+          Settings
+        </span>
+      </nav>
+    </div>
+
+    <div style="margin-top:auto;padding:16px 16px 0">
+      <div style="border:2px solid #3A3550;border-radius:16px;padding:16px;background:#1C1926">
+        <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:#8B839F">Starter plan</span><span style="font-size:11px;font-weight:700;color:#C8FF4D">2 / 3 left</span></div>
+        <div style="height:8px;border-radius:999px;background:#3A3550;margin-top:10px;overflow:hidden"><div style="width:33%;height:100%;background:linear-gradient(90deg,#FF3D8B,#FFB93D)"></div></div>
+        <a href="#" style="display:block;text-align:center;margin-top:12px;background:#C8FF4D;color:#14121C;font-size:13.5px;font-weight:800;padding:9px;border-radius:10px">Upgrade to Pro</a>
+      </div>
+    </div>
+  </aside>
+
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+    <header style="position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:16px;height:66px;padding:0 28px;background:rgba(244,237,227,0.9);backdrop-filter:blur(12px);border-bottom:2px solid #14121C">
+      <div style="display:flex;flex:0 1 340px;min-width:0;align-items:center;gap:9px;background:#fff;border:2px solid #14121C;border-radius:12px;padding:9px 14px;overflow:hidden;box-shadow:3px 3px 0 #14121C">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#88829B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <span style="font-size:14px;color:#88829B;white-space:nowrap">Search offers, letters, rounds…</span>
+        <span style="margin-left:auto;font-family:'Space Mono',monospace;font-size:11px;color:#88829B;border:1px solid #D9D2C6;border-radius:6px;padding:1px 6px">⌘K</span>
+      </div>
+      <div style="margin-left:auto;display:flex;flex:none;align-items:center;gap:12px">
+        <span style="display:flex;flex:none;white-space:nowrap;align-items:center;gap:8px;background:#C8FF4D;border:2px solid #14121C;border-radius:999px;padding:7px 13px;font-size:13px;font-weight:700">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#14121C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"></path><path d="m16.2 7.8 2.9-2.9"></path><path d="M18 12h4"></path><path d="M12 18v4"></path><path d="M2 12h4"></path><path d="m4.9 4.9 2.9 2.9"></path></svg>
+          7-day streak
+        </span>
+        <button type="button" style="position:relative;display:flex;flex:none;width:40px;height:40px;align-items:center;justify-content:center;border-radius:12px;background:#fff;border:2px solid #14121C;cursor:pointer">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#14121C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
+          <span style="position:absolute;top:-6px;right:-6px;display:flex;align-items:center;justify-content:center;min-width:19px;height:19px;border-radius:999px;background:#FF3D8B;border:2px solid #14121C;color:#fff;font-size:10px;font-weight:800">3</span>
+        </button>
+        <span style="display:flex;flex:none;white-space:nowrap;align-items:center;gap:10px;background:#fff;border:2px solid #14121C;border-radius:999px;padding:5px 14px 5px 5px">
+          <span style="display:flex;width:32px;height:32px;flex:none;align-items:center;justify-content:center;border-radius:50%;background:#6C3BFF;color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:800">AN</span>
+          <span style="font-size:13.5px;line-height:1.2"><strong>Ananya</strong><br /><span style="color:#88829B;font-size:11.5px">she/her</span></span>
+        </span>
+      </div>
+    </header>
+
+    <main style="flex:1;padding:32px 28px 56px">
+
+      <sc-if value="{{ isList }}" hint-placeholder-val="{{ true }}">
+        <div data-screen-label="Offers list" style="max-width:1120px;margin:0 auto">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
+            <div>
+              <h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:38px;letter-spacing:-0.03em;margin:0">Salary Negotiator</h1>
+              <p style="font-size:16px;color:#5A5468;margin:8px 0 0;text-wrap:pretty">Know the number before you say a number. Then practise saying it out loud.</p>
+            </div>
+            <button type="button" onClick="{{ goAnalyze }}" style="display:inline-flex;flex:none;white-space:nowrap;align-items:center;gap:9px;background:#6C3BFF;color:#fff;font-size:15px;font-weight:700;padding:13px 20px;border-radius:13px;border:2px solid #14121C;box-shadow:4px 4px 0 #14121C;cursor:pointer" style-hover="background:#FF3D8B">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+              Add an offer
+            </button>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:18px;margin-top:26px;align-items:flex-start">
+            <div style="flex:3 1 400px;min-width:0;display:flex;flex-direction:column;gap:14px">
+              <div style="background:#14121C;color:#FFF6EC;border:2px solid #14121C;border-radius:22px;padding:26px;box-shadow:6px 6px 0 #C8FF4D">
+                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                  <span style="display:flex;width:44px;height:44px;flex:none;align-items:center;justify-content:center;border-radius:13px;background:#C8FF4D;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:16px;color:#14121C">No</span>
+                  <span style="flex:1;min-width:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px">Notion · Product Analyst, Growth</span>
+                  <span style="flex:none;white-space:nowrap;background:#FFB93D;color:#14121C;border-radius:999px;padding:3px 11px;font-size:11.5px;font-weight:800">Live offer · 4 days to respond</span>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:22px;margin-top:22px">
+                  <div style="flex:1 1 130px;min-width:0">
+                    <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#8B839F">On the table</span>
+                    <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:32px;margin:4px 0 0">₹18.4L</p>
+                  </div>
+                  <div style="flex:1 1 130px;min-width:0">
+                    <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#8B839F">Market p50</span>
+                    <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:32px;margin:4px 0 0;color:#C8FF4D">₹21.0L</p>
+                  </div>
+                  <div style="flex:1 1 130px;min-width:0">
+                    <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#8B839F">We'd ask for</span>
+                    <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:32px;margin:4px 0 0;color:#FFB93D">₹23.5L</p>
+                  </div>
+                </div>
+                <div style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap">
+                  <button type="button" onClick="{{ goAnalyze }}" style="flex:none;white-space:nowrap;background:#C8FF4D;color:#14121C;border:2px solid #FFF6EC;border-radius:11px;padding:11px 17px;font-size:13.5px;font-weight:800;cursor:pointer">Break it down</button>
+                  <button type="button" onClick="{{ goScript }}" style="flex:none;white-space:nowrap;background:none;color:#FFF6EC;border:2px solid #FFF6EC;border-radius:11px;padding:11px 17px;font-size:13.5px;font-weight:800;cursor:pointer">Practise the ask</button>
+                </div>
+              </div>
+
+              <sc-for list="{{ offers }}" as="o" hint-placeholder-count="3">
+                <div style="display:flex;align-items:center;gap:16px;background:#fff;border:2px solid #14121C;border-radius:20px;padding:18px 22px;box-shadow:5px 5px 0 #14121C">
+                  <span style="display:flex;width:46px;height:46px;flex:none;align-items:center;justify-content:center;border-radius:13px;background:{{ o.logoBg }};border:2px solid #14121C;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:15px;color:{{ o.logoFg }}">{{ o.initials }}</span>
+                  <div style="flex:1;min-width:0">
+                    <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap">
+                      <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0">{{ o.role }}</p>
+                      <span style="display:flex;flex:none;white-space:nowrap;align-items:center;background:{{ o.statusBg }};color:{{ o.statusFg }};border:2px solid #14121C;border-radius:999px;padding:2px 9px;font-size:11px;font-weight:800">{{ o.status }}</span>
+                    </div>
+                    <p style="font-size:13px;color:#88829B;margin:5px 0 0;font-family:'Space Mono',monospace">{{ o.meta }}</p>
+                  </div>
+                  <div style="flex:none;text-align:right">
+                    <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;margin:0">{{ o.total }}</p>
+                    <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:{{ o.deltaFg }}">{{ o.delta }}</span>
+                  </div>
+                  <button type="button" onClick="{{ goAnalyze }}" style="flex:none;white-space:nowrap;background:#FFF6EC;border:2px solid #14121C;border-radius:11px;padding:10px 16px;font-size:13.5px;font-weight:700;cursor:pointer;box-shadow:3px 3px 0 #14121C" style-hover="background:#C8FF4D">Open</button>
+                </div>
+              </sc-for>
+            </div>
+
+            <div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:18px">
+              <div style="background:#fff;border:2px solid #14121C;border-radius:20px;padding:22px;box-shadow:5px 5px 0 #14121C">
+                <strong style="font-family:'Bricolage Grotesque',sans-serif;font-size:18px">Your market band</strong>
+                <p style="font-size:13px;color:#88829B;margin:5px 0 0;font-family:'Space Mono',monospace">Product Analyst · Bengaluru · 0–2 yrs</p>
+                <div style="position:relative;height:14px;border:2px solid #14121C;border-radius:999px;background:#EFE9E0;margin-top:18px;overflow:hidden">
+                  <div style="position:absolute;left:18%;right:22%;top:0;bottom:0;background:linear-gradient(90deg,#38D6FF,#6C3BFF)"></div>
+                </div>
+                <div style="position:relative;height:28px;margin-top:4px">
+                  <span style="position:absolute;left:36%;transform:translateX(-50%);font-family:'Space Mono',monospace;font-size:10.5px;font-weight:700;color:#14121C">▲ you</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:11px;color:#88829B">
+                  <span>₹12L</span><span>₹21L</span><span>₹32L</span>
+                </div>
+                <button type="button" onClick="{{ goMarket }}" style="width:100%;margin-top:16px;background:#38D6FF;border:2px solid #14121C;border-radius:11px;padding:10px;font-size:13.5px;font-weight:800;cursor:pointer;box-shadow:3px 3px 0 #14121C">See the full data</button>
+              </div>
+
+              <div style="background:#FFF6EC;border:2px solid #14121C;border-radius:20px;padding:22px;box-shadow:5px 5px 0 #FF3D8B">
+                <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:#B3005C">Worth knowing</span>
+                <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:8px 0 0;text-wrap:pretty">You never have to share your current salary first.</p>
+                <p style="font-size:13.5px;color:#5A5468;line-height:1.55;margin:9px 0 0;text-wrap:pretty">Anchoring on your last pay is how underpaid people stay underpaid — and it hits first-gen and women hardest. We'll give you a line for deflecting it politely.</p>
+                <button type="button" onClick="{{ goScript }}" style="margin-top:14px;background:#14121C;color:#FFF6EC;border:2px solid #14121C;border-radius:11px;padding:9px 15px;font-size:13px;font-weight:800;cursor:pointer">Get the line</button>
+              </div>
+
+              <div style="background:#fff;border:2px solid #14121C;border-radius:20px;padding:22px;box-shadow:5px 5px 0 #14121C">
+                <strong style="font-family:'Bricolage Grotesque',sans-serif;font-size:18px">Negotiation wins</strong>
+                <div style="display:flex;flex-direction:column;gap:11px;margin-top:13px">
+                  <div style="display:flex;align-items:center;gap:10px"><span style="flex:none;font-family:'Space Mono',monospace;font-size:12px;color:#88829B">Jun</span><span style="flex:1;min-width:0;font-size:13.5px;font-weight:600">Internship stipend</span><span style="flex:none;font-size:13.5px;font-weight:800;color:#3F5209">+₹8k/mo</span></div>
+                  <div style="height:2px;background:#EFE9E0"></div>
+                  <div style="display:flex;align-items:center;gap:10px"><span style="flex:none;font-family:'Space Mono',monospace;font-size:12px;color:#88829B">Apr</span><span style="flex:1;min-width:0;font-size:13.5px;font-weight:600">Freelance day rate</span><span style="flex:none;font-size:13.5px;font-weight:800;color:#3F5209">+22%</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isMarket }}">
+        <div data-screen-label="Market data" style="max-width:1060px;margin:0 auto">
+          <button type="button" onClick="{{ goList }}" style="display:inline-flex;align-items:center;gap:7px;background:none;border:none;padding:0;font-size:13.5px;font-weight:700;color:#5A5468;cursor:pointer">← Back</button>
+          <h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.03em;margin:14px 0 0">What this role actually pays</h1>
+          <p style="font-size:15.5px;color:#5A5468;margin:8px 0 0;text-wrap:pretty">Pooled from verified offers, public pay-transparency filings, and levels data. No “competitive salary” hand-waving.</p>
+
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:22px">
+            <label style="flex:1 1 200px;min-width:0">
+              <span style="display:block;font-size:12.5px;font-weight:700;color:#5A5468;margin-bottom:6px">Role</span>
+              <input type="text" defaultValue="Product Analyst, Growth" style="width:100%;background:#fff;border:2px solid #14121C;border-radius:11px;padding:11px 13px;font-size:14px;font-weight:600" />
+            </label>
+            <label style="flex:1 1 140px;min-width:0">
+              <span style="display:block;font-size:12.5px;font-weight:700;color:#5A5468;margin-bottom:6px">City</span>
+              <input type="text" defaultValue="Bengaluru" style="width:100%;background:#fff;border:2px solid #14121C;border-radius:11px;padding:11px 13px;font-size:14px;font-weight:600" />
+            </label>
+            <label style="flex:1 1 140px;min-width:0">
+              <span style="display:block;font-size:12.5px;font-weight:700;color:#5A5468;margin-bottom:6px">Experience</span>
+              <input type="text" defaultValue="0–2 years" style="width:100%;background:#fff;border:2px solid #14121C;border-radius:11px;padding:11px 13px;font-size:14px;font-weight:600" />
+            </label>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:18px;margin-top:20px;align-items:flex-start">
+            <div style="flex:3 1 380px;min-width:0;background:#fff;border:2px solid #14121C;border-radius:20px;padding:24px;box-shadow:6px 6px 0 #14121C">
+              <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+                <strong style="font-family:'Bricolage Grotesque',sans-serif;font-size:19px">Total comp distribution</strong>
+                <span style="flex:none;white-space:nowrap;font-family:'Space Mono',monospace;font-size:11px;color:#88829B">n = 412 offers · last 9 months</span>
+              </div>
+              <div style="display:flex;align-items:flex-end;gap:6px;height:190px;margin-top:22px">
+                <sc-for list="{{ bars }}" as="b" hint-placeholder-count="9">
+                  <div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;gap:6px">
+                    <span style="font-family:'Space Mono',monospace;font-size:9.5px;color:{{ b.labelFg }};font-weight:700">{{ b.tag }}</span>
+                    <span style="width:100%;height:{{ b.h }};background:{{ b.bg }};border:2px solid #14121C;border-radius:6px 6px 0 0"></span>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="display:flex;gap:6px;margin-top:8px">
+                <sc-for list="{{ bars }}" as="b" hint-placeholder-count="9">
+                  <span style="flex:1;min-width:0;text-align:center;font-family:'Space Mono',monospace;font-size:10px;color:#88829B">{{ b.label }}</span>
+                </sc-for>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:22px;padding-top:20px;border-top:2px solid #EFE9E0">
+                <div style="flex:1 1 110px;min-width:0"><span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#88829B">p25</span><p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:22px;margin:3px 0 0">₹16.2L</p></div>
+                <div style="flex:1 1 110px;min-width:0"><span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#88829B">Median</span><p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:22px;margin:3px 0 0;color:#4A22C4">₹21.0L</p></div>
+                <div style="flex:1 1 110px;min-width:0"><span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#88829B">p75</span><p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:22px;margin:3px 0 0">₹25.8L</p></div>
+                <div style="flex:1 1 110px;min-width:0"><span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#88829B">p90</span><p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:22px;margin:3px 0 0">₹31.4L</p></div>
+              </div>
+            </div>
+
+            <div style="flex:1 1 270px;min-width:0;display:flex;flex-direction:column;gap:18px">
+              <div style="background:#C8FF4D;border:2px solid #14121C;border-radius:20px;padding:22px;box-shadow:5px 5px 0 #14121C">
+                <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:#3F5209">Your offer sits at</span>
+                <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:46px;margin:4px 0 0;line-height:1">p36</p>
+                <p style="font-size:13.5px;color:#2F3D06;line-height:1.5;margin:8px 0 0;text-wrap:pretty">₹2.6L below median for the same title in the same city. That's the whole case, and it's a fair one.</p>
+              </div>
+              <div style="background:#fff;border:2px solid #14121C;border-radius:20px;padding:22px;box-shadow:5px 5px 0 #14121C">
+                <strong style="font-family:'Bricolage Grotesque',sans-serif;font-size:17px">What moves the number</strong>
+                <div style="display:flex;flex-direction:column;gap:12px;margin-top:13px">
+                  <sc-for list="{{ levers }}" as="l" hint-placeholder-count="4">
+                    <div>
+                      <div style="display:flex;justify-content:space-between;gap:8px;font-size:13px;font-weight:700"><span style="flex:1;min-width:0">{{ l.name }}</span><span style="flex:none;color:{{ l.fg }}">{{ l.val }}</span></div>
+                      <div style="height:8px;border-radius:999px;background:#EFE9E0;margin-top:5px;overflow:hidden;border:1px solid #14121C"><div style="width:{{ l.pct }};height:100%;background:{{ l.bar }}"></div></div>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+              <div style="background:#14121C;color:#FFF6EC;border:2px solid #14121C;border-radius:20px;padding:20px;box-shadow:5px 5px 0 #38D6FF">
+                <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:#8B839F">Sources</span>
+                <p style="font-size:13px;color:#C4BDD4;line-height:1.6;margin:8px 0 0">412 verified offers · EU &amp; US pay-transparency filings · Levels.fyi India cut · 38 CareerCopilot users who shared theirs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isAnalyze }}">
+        <div data-screen-label="Offer breakdown" style="max-width:1060px;margin:0 auto">
+          <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+            <button type="button" onClick="{{ goList }}" style="display:inline-flex;flex:none;white-space:nowrap;align-items:center;gap:7px;background:none;border:none;padding:0;font-size:13.5px;font-weight:700;color:#5A5468;cursor:pointer">← All offers</button>
+            <h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;letter-spacing:-0.02em;margin:0;min-width:0">Notion offer · breakdown</h1>
+            <button type="button" onClick="{{ goScript }}" style="margin-left:auto;flex:none;white-space:nowrap;background:#6C3BFF;color:#fff;border:2px solid #14121C;border-radius:12px;padding:11px 18px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:4px 4px 0 #14121C" style-hover="background:#FF3D8B">Build my counter</button>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:18px;margin-top:22px;align-items:flex-start">
+            <div style="flex:3 1 380px;min-width:0;display:flex;flex-direction:column;gap:18px">
+              <div style="background:#fff;border:2px solid #14121C;border-radius:20px;padding:24px;box-shadow:6px 6px 0 #14121C">
+                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                  <strong style="font-family:'Bricolage Grotesque',sans-serif;font-size:19px">The components</strong>
+                  <span style="flex:none;white-space:nowrap;font-family:'Space Mono',monospace;font-size:11px;color:#88829B">edit any line</span>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:11px;margin-top:16px">
+                  <sc-for list="{{ components }}" as="c" hint-placeholder-count="5">
+                    <div style="display:flex;align-items:center;gap:12px;background:#FFF6EC;border:2px solid #14121C;border-radius:13px;padding:13px 15px;flex-wrap:wrap">
+                      <span style="display:flex;width:34px;height:34px;flex:none;align-items:center;justify-content:center;border-radius:9px;background:{{ c.dot }};border:2px solid #14121C;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:{{ c.dotFg }}">{{ c.abbr }}</span>
+                      <span style="flex:1 1 120px;min-width:0;font-size:14px;font-weight:700">{{ c.name }}<br /><span style="font-family:'Space Mono',monospace;font-size:11px;color:#88829B;font-weight:400">{{ c.note }}</span></span>
+                      <input type="text" defaultValue="{{ c.value }}" style="flex:none;width:104px;background:#fff;border:2px solid #14121C;border-radius:9px;padding:8px 10px;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;text-align:right" />
+                    </div>
+                  </sc-for>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px;margin-top:16px;padding-top:16px;border-top:2px solid #14121C;flex-wrap:wrap">
+                  <span style="flex:1;min-width:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px">Year-one total</span>
+                  <span style="flex:none;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:28px">₹18.4L</span>
+                </div>
+              </div>
+
+              <div style="background:#fff;border:2px solid #14121C;border-radius:20px;padding:24px;box-shadow:6px 6px 0 #14121C">
+                <strong style="font-family:'Bricolage Grotesque',sans-serif;font-size:19px">Read the fine print</strong>
+                <div style="display:flex;flex-direction:column;gap:12px;margin-top:14px">
+                  <sc-for list="{{ flags }}" as="f" hint-placeholder-count="3">
+                    <div style="display:flex;gap:12px;background:{{ f.bg }};border:2px solid {{ f.border }};border-radius:13px;padding:14px">
+                      <span style="flex:none;font-size:15px;font-weight:800;color:{{ f.iconFg }}">{{ f.icon }}</span>
+                      <div style="flex:1;min-width:0">
+                        <p style="font-size:14px;font-weight:800;margin:0">{{ f.title }}</p>
+                        <p style="font-size:13px;color:#5A5468;line-height:1.55;margin:5px 0 0;text-wrap:pretty">{{ f.note }}</p>
+                      </div>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:1 1 270px;min-width:0;display:flex;flex-direction:column;gap:18px">
+              <div style="background:#14121C;color:#FFF6EC;border:2px solid #14121C;border-radius:20px;padding:22px;box-shadow:5px 5px 0 #C8FF4D">
+                <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:#8B839F">Leverage score</span>
+                <div style="display:flex;align-items:baseline;gap:8px;margin-top:6px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:44px;line-height:1">74</span><span style="font-size:13px;font-weight:700;color:#C8FF4D">good position</span></div>
+                <div style="display:flex;flex-direction:column;gap:9px;margin-top:16px">
+                  <sc-for list="{{ leverage }}" as="l" hint-placeholder-count="4">
+                    <div style="display:flex;align-items:center;gap:9px">
+                      <span style="flex:none;font-size:13px;font-weight:800;color:{{ l.fg }}">{{ l.mark }}</span>
+                      <span style="flex:1;min-width:0;font-size:13px;line-height:1.4">{{ l.text }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+
+              <div style="background:#FFF6EC;border:2px solid #14121C;border-radius:20px;padding:22px;box-shadow:5px 5px 0 #6C3BFF">
+                <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:#4A22C4">Our recommendation</span>
+                <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:34px;margin:6px 0 0">₹23.5L</p>
+                <p style="font-size:13.5px;color:#5A5468;line-height:1.55;margin:8px 0 0;text-wrap:pretty">Ask for ₹23.5L, signal you'd sign at ₹21.5L, and treat the ₹2L joining bonus as separate. Realistic landing zone: ₹21–22L.</p>
+                <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap">
+                  <span style="flex:none;white-space:nowrap;background:#fff;border:2px solid #14121C;border-radius:999px;padding:4px 10px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700">Ask ₹23.5L</span>
+                  <span style="flex:none;white-space:nowrap;background:#C8FF4D;border:2px solid #14121C;border-radius:999px;padding:4px 10px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700">Walk-away ₹19L</span>
+                </div>
+              </div>
+
+              <div style="background:#fff;border:2px solid #14121C;border-radius:20px;padding:22px;box-shadow:5px 5px 0 #14121C">
+                <strong style="font-family:'Bricolage Grotesque',sans-serif;font-size:17px">Ask for these too</strong>
+                <p style="font-size:12.5px;color:#88829B;margin:5px 0 0">Cheaper for them to say yes to than base.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+                  <sc-for list="{{ nonCash }}" as="n" hint-placeholder-count="6">
+                    <span style="flex:none;white-space:nowrap;background:#EFE9F9;border:2px solid #6C3BFF;color:#4A22C4;border-radius:999px;padding:5px 11px;font-size:12px;font-weight:700">{{ n }}</span>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isScript }}">
+        <div data-screen-label="Counter script and roleplay" style="max-width:1060px;margin:0 auto">
+          <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+            <button type="button" onClick="{{ goAnalyze }}" style="display:inline-flex;flex:none;white-space:nowrap;align-items:center;gap:7px;background:none;border:none;padding:0;font-size:13.5px;font-weight:700;color:#5A5468;cursor:pointer">← Breakdown</button>
+            <h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;letter-spacing:-0.02em;margin:0;min-width:0">Your counter, in your words</h1>
+          </div>
+
+          <div style="display:flex;gap:9px;margin-top:20px;flex-wrap:wrap">
+            <sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
+              <button type="button" onClick="{{ m.onClick }}" style="flex:none;white-space:nowrap;background:{{ m.bg }};color:{{ m.fg }};border:2px solid #14121C;border-radius:12px;padding:10px 16px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:{{ m.shadow }}">{{ m.label }}</button>
+            </sc-for>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:18px;margin-top:20px;align-items:flex-start">
+            <div style="flex:3 1 380px;min-width:0">
+
+              <sc-if value="{{ isWrite }}" hint-placeholder-val="{{ true }}">
+                <div style="background:#fff;border:2px solid #14121C;border-radius:20px;box-shadow:6px 6px 0 #14121C;overflow:hidden">
+                  <div style="display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:2px solid #14121C;background:#FFF6EC;flex-wrap:wrap">
+                    <span style="flex:1;min-width:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px">Email to Riya Mehta</span>
+                    <span style="flex:none;white-space:nowrap;font-family:'Space Mono',monospace;font-size:11px;color:#88829B">{{ registerLabel }}</span>
+                  </div>
+                  <div style="padding:22px">
+                    <div style="display:flex;align-items:center;gap:10px;background:#FFF6EC;border:2px solid #14121C;border-radius:11px;padding:11px 13px;margin-bottom:16px">
+                      <span style="flex:none;font-family:'Space Mono',monospace;font-size:11px;color:#88829B;text-transform:uppercase;letter-spacing:0.08em">Subj</span>
+                      <span style="flex:1;min-width:0;font-size:14px;font-weight:700">Notion offer — one thing on compensation</span>
+                    </div>
+                    <div style="white-space:pre-wrap;font-size:14.5px;line-height:1.75;color:#1B1826">{{ scriptBody }}</div>
+                    <div style="display:flex;align-items:center;gap:10px;margin-top:20px;padding-top:18px;border-top:2px solid #EFE9E0;flex-wrap:wrap">
+                      <button type="button" style="flex:none;white-space:nowrap;background:#6C3BFF;color:#fff;border:2px solid #14121C;border-radius:11px;padding:10px 16px;font-size:13.5px;font-weight:700;cursor:pointer;box-shadow:3px 3px 0 #14121C">Copy email</button>
+                      <button type="button" onClick="{{ cycleRegister }}" style="flex:none;white-space:nowrap;background:#fff;border:2px solid #14121C;border-radius:11px;padding:10px 16px;font-size:13.5px;font-weight:700;cursor:pointer">Change register</button>
+                      <span style="margin-left:auto;flex:none;font-family:'Space Mono',monospace;font-size:11.5px;color:#88829B">{{ scriptChars }} chars</span>
+                    </div>
+                  </div>
+                </div>
+              </sc-if>
+
+              <sc-if value="{{ isRoleplay }}">
+                <div style="background:#fff;border:2px solid #14121C;border-radius:20px;box-shadow:6px 6px 0 #14121C;overflow:hidden">
+                  <div style="display:flex;align-items:center;gap:10px;padding:13px 18px;border-bottom:2px solid #14121C;background:#14121C;color:#FFF6EC;flex-wrap:wrap">
+                    <span style="display:flex;width:32px;height:32px;flex:none;align-items:center;justify-content:center;border-radius:50%;background:#38D6FF;color:#14121C;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:12px">RM</span>
+                    <span style="flex:1;min-width:0;font-size:14px;font-weight:700">Riya · recruiter roleplay<br /><span style="font-family:'Space Mono',monospace;font-size:10.5px;color:#8B839F;font-weight:400">plays it firm but fair</span></span>
+                    <span style="flex:none;white-space:nowrap;background:#C8FF4D;color:#14121C;border-radius:999px;padding:3px 10px;font-size:11px;font-weight:800">Live</span>
+                  </div>
+                  <div style="padding:20px;display:flex;flex-direction:column;gap:14px;background:#FFF6EC">
+                    <sc-for list="{{ turns }}" as="t" hint-placeholder-count="4">
+                      <div style="display:flex;justify-content:{{ t.align }}">
+                        <div style="max-width:78%;background:{{ t.bg }};color:{{ t.fg }};border:2px solid #14121C;border-radius:{{ t.radius }};padding:13px 16px;font-size:14px;line-height:1.6;box-shadow:3px 3px 0 #14121C">{{ t.text }}</div>
+                      </div>
+                    </sc-for>
+                    <sc-if value="{{ hasReplies }}" hint-placeholder-val="{{ true }}">
+                      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
+                        <span style="flex:1 1 100%;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:#88829B">Your turn — pick your words</span>
+                        <sc-for list="{{ replies }}" as="r" hint-placeholder-count="3">
+                          <button type="button" onClick="{{ r.onClick }}" style="flex:1 1 200px;min-width:0;text-align:left;background:#fff;border:2px solid #14121C;border-radius:12px;padding:12px 14px;font-size:13.5px;font-weight:600;line-height:1.5;cursor:pointer;box-shadow:3px 3px 0 #14121C" style-hover="background:#C8FF4D">{{ r.text }}</button>
+                        </sc-for>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{ isDone }}">
+                      <div style="background:#14121C;color:#FFF6EC;border:2px solid #14121C;border-radius:16px;padding:20px;margin-top:4px">
+                        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+                          <span style="display:flex;width:62px;height:62px;flex:none;align-items:center;justify-content:center;border-radius:50%;background:#C8FF4D;border:2px solid #FFF6EC;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:22px;color:#14121C">{{ debriefScore }}</span>
+                          <span style="flex:1;min-width:0">
+                            <span style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:#8B839F">Call ended</span>
+                            <span style="display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;margin-top:3px">{{ debriefVerdict }}</span>
+                          </span>
+                          <button type="button" onClick="{{ restart }}" style="flex:none;white-space:nowrap;background:#FFF6EC;color:#14121C;border:2px solid #FFF6EC;border-radius:11px;padding:10px 16px;font-size:13.5px;font-weight:800;cursor:pointer">Run it again</button>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:9px;margin-top:16px">
+                          <sc-for list="{{ debriefNotes }}" as="n" hint-placeholder-count="3">
+                            <div style="display:flex;gap:10px">
+                              <span style="flex:none;color:#C8FF4D;font-weight:800">→</span>
+                              <span style="flex:1;min-width:0;font-size:13.5px;color:#C4BDD4;line-height:1.55">{{ n }}</span>
+                            </div>
+                          </sc-for>
+                        </div>
+                      </div>
+                    </sc-if>
+                  </div>
+                </div>
+              </sc-if>
+
+            </div>
+
+            <div style="flex:1 1 270px;min-width:0;display:flex;flex-direction:column;gap:18px">
+              <div style="background:#C8FF4D;border:2px solid #14121C;border-radius:20px;padding:22px;box-shadow:5px 5px 0 #14121C">
+                <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:#3F5209">The number to say</span>
+                <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:40px;margin:4px 0 0;line-height:1">₹23.5L</p>
+                <p style="font-size:13px;color:#2F3D06;line-height:1.5;margin:8px 0 0">Say it once, plainly, then stop talking. Silence is not your problem to fill.</p>
+              </div>
+
+              <div style="background:#fff;border:2px solid #14121C;border-radius:20px;padding:22px;box-shadow:5px 5px 0 #14121C">
+                <strong style="font-family:'Bricolage Grotesque',sans-serif;font-size:17px">If they say…</strong>
+                <div style="display:flex;flex-direction:column;gap:12px;margin-top:13px">
+                  <sc-for list="{{ objections }}" as="o" hint-placeholder-count="4">
+                    <div style="background:#FFF6EC;border:2px solid #14121C;border-radius:13px;padding:13px">
+                      <p style="font-size:12.5px;font-weight:800;margin:0;color:#B3005C">“{{ o.they }}”</p>
+                      <p style="font-size:12.5px;color:#5A5468;line-height:1.55;margin:7px 0 0;text-wrap:pretty">{{ o.you }}</p>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+
+              <div style="background:#14121C;color:#FFF6EC;border:2px solid #14121C;border-radius:20px;padding:22px;box-shadow:5px 5px 0 #FF3D8B">
+                <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:#8B839F">Reminder</span>
+                <p style="font-size:13.5px;color:#C4BDD4;line-height:1.6;margin:8px 0 0;text-wrap:pretty">Asking is normal and expected — a well-run company will not pull an offer over one polite counter. If a company punishes you for asking, that told you something useful for free.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+    </main>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startScreen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;list&quot;,&quot;market&quot;,&quot;analyze&quot;,&quot;script&quot;],&quot;default&quot;:&quot;list&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Prototype&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    if (props && props.startScreen) this.state = { ...this.state, screen: props.startScreen };
+  }
+
+  state = { screen: "list", mode: "write", register: "warm", path: [] };
+
+  NODES = {
+    start: {
+      replies: [
+        { id: "deflect", you: "I'd rather not anchor on a number before I know the band. What range has the team budgeted for this level?", them: "Fair enough. We're at ₹18.4L for this one — that's near the top of the band for a fresher, honestly.", next: "counter" },
+        { id: "number", you: "Based on 412 verified offers for this title in Bengaluru, I'm looking at ₹23.5L total comp.", them: "That's above where we are. We're at ₹18.4L, and base is fairly rigid at this level.", next: "counter" },
+        { id: "ladder", you: "What's the full range for this level — and for the level above it?", them: "This level runs ₹16–19L. The one above starts at ₹22L, but that usually needs two years of ownership.", next: "ladder" },
+      ],
+    },
+    counter: {
+      replies: [
+        { id: "median", you: "The median for this title here is ₹21L. I'd like to land at ₹23.5L, and I'd sign at ₹21.5L.", them: "Okay. Base is genuinely capped, but I do have room on the joining bonus and the equity refresh.", next: "close" },
+        { id: "noncash", you: "If base is capped, can we do a ₹2L joining bonus and a six-month review with a written bar?", them: "The joining bonus I can do today. The review I'd have to put to your manager — but it's not unusual.", next: "close" },
+        { id: "cave", you: "That's fine — I'll accept the ₹18.4L as it is.", them: "Great, I'll send the paperwork over this afternoon.", next: null },
+      ],
+    },
+    ladder: {
+      replies: [
+        { id: "bar", you: "What would it take to be hired in at that level? I'd rather agree the bar now than a year from now.", them: "Honestly? Evidence you've owned instrumentation end to end. Your Swiggy teardown might qualify — send it to me.", next: "close" },
+        { id: "top", you: "Then ₹19L at this level, plus a six-month review against that bar.", them: "₹19L I can probably get signed off. Let me check on the review and come back to you.", next: "close" },
+      ],
+    },
+    close: {
+      replies: [
+        { id: "sign", you: "Send it with the ₹2L joining bonus and I'll sign this week.", them: "Done — paperwork today. Thanks for being straightforward about it, it makes my job easier.", next: null },
+        { id: "time", you: "I need until Friday — I have one other process closing.", them: "Understood. Friday is fine, and I'd rather you decide properly than quickly.", next: null },
+      ],
+    },
+  };
+
+  set = (k, v) => this.setState({ [k]: v });
+
+  renderVals() {
+    const st = this.state;
+    const REGISTERS = ["warm", "brief", "formal"];
+    const registerLabels = { warm: "warm & specific", brief: "short & plain", formal: "classic formal" };
+
+    const bodies = {
+      warm: "Hi Riya,\n\nThank you for the offer — I'm genuinely excited about this team, and I'd like to accept.\n\nBefore I sign, I want to raise compensation once. Based on 412 verified offers for Product Analyst roles in Bengaluru, the median total comp for this scope sits at ₹21L, and the offer is at ₹18.4L. Given that I'd come in owning funnel instrumentation from week one — the same work that cut checkout drop-off 11pp at Swiggy — ₹23.5L feels like the right number for the scope.\n\nIf base is capped, I'm happy to talk about how we get there: equity, a joining bonus, or a six-month review with a defined bar all work for me.\n\nEither way I'm keen to move forward. Thanks for hearing me out.\n\nAnanya",
+      brief: "Hi Riya,\n\nThank you — I want to accept this.\n\nOne ask before I sign: the median for this role in Bengaluru is ₹21L and the offer is ₹18.4L. I'd like ₹23.5L. If base is fixed, equity or a joining bonus works too.\n\nHappy either way, and excited about the team.\n\nAnanya",
+      formal: "Dear Riya,\n\nThank you for extending the offer for the Product Analyst, Growth position. I am pleased to confirm my strong interest in joining the team.\n\nI would like to respectfully raise the matter of compensation. Market data for comparable roles in Bengaluru indicates a median total compensation of ₹21,00,000, whereas the current offer stands at ₹18,40,000. In light of the scope of the role, I would like to propose a revised figure of ₹23,50,000.\n\nShould base salary be constrained, I would welcome a discussion of equity, a signing bonus, or a defined six-month review.\n\nI look forward to your response.\n\nSincerely,\nAnanya Nair",
+    };
+
+    const seq = [{ who: "them", text: "So — what are your salary expectations for this role?" }];
+    let node = "start";
+    st.path.forEach((chosen) => {
+      const r = (this.NODES[node].replies || []).find((x) => x.id === chosen);
+      if (!r) return;
+      seq.push({ who: "you", text: r.you }, { who: "them", text: r.them });
+      node = r.next;
+    });
+    const current = node ? this.NODES[node] : null;
+    const ids = st.path;
+    const namedNumber = ids.includes("number") || ids.includes("median") || ids.includes("top");
+    const caved = ids.includes("cave");
+    const debrief = !current
+      ? {
+          score: caved ? (namedNumber ? 58 : 42) : ids.includes("median") ? 88 : 76,
+          verdict: caved
+            ? (namedNumber ? "You asked, then let it go too fast" : "You folded before you asked")
+            : ids.includes("median") ? "Textbook counter" : "Solid, held your ground",
+          notes: ids.map((id) => ({
+                deflect: "You made them name the band first. That's the single highest-value move in the whole call.",
+                number: "You anchored high early. Risky, but it held because you brought data instead of a wish.",
+                ladder: "You asked to see the ladder before you said a number — now the band is a fact you both agreed on.",
+                median: "You gave one number plus a sign-here number. Clean, and it left the recruiter something to say yes to.",
+                noncash: "You pivoted to joining bonus and a written review the moment base stopped moving. Correct instinct.",
+                bar: "You negotiated the level, not just the number. That compounds every year — the raise is a one-off.",
+                top: "You took the top of the current band and attached a review to it. Modest, but nothing was left unsaid.",
+                sign: "You closed decisively. Get the ₹2L joining bonus in the written offer before you sign anything.",
+                time: "Asking for until Friday was clean and cost you nothing. Real offers survive a few days.",
+                cave: "You took their number as final on the first push-back. Their answer was policy language, not a no — one more sentence was free.",
+              }[id])).filter(Boolean),
+        }
+      : null;
+    const turns = seq.map((t) => ({
+      text: t.text,
+      align: t.who === "you" ? "flex-end" : "flex-start",
+      bg: t.who === "you" ? "#6C3BFF" : "#fff",
+      fg: t.who === "you" ? "#fff" : "#14121C",
+      radius: t.who === "you" ? "16px 16px 4px 16px" : "16px 16px 16px 4px",
+    }));
+
+    return {
+      isList: st.screen === "list",
+      isMarket: st.screen === "market",
+      isAnalyze: st.screen === "analyze",
+      isScript: st.screen === "script",
+      goList: () => this.set("screen", "list"),
+      goMarket: () => this.set("screen", "market"),
+      goAnalyze: () => this.set("screen", "analyze"),
+      goScript: () => this.set("screen", "script"),
+
+      offers: [
+        { initials: "Zo", role: "Zomato · Growth Analyst", meta: "Verbal offer · awaiting letter", status: "◷ Verbal", statusBg: "#FFB93D", statusFg: "#14121C", total: "₹16.8L", delta: "p22 · below band", deltaFg: "#B3005C", logoBg: "#FFB93D", logoFg: "#14121C" },
+        { initials: "Fi", role: "Figma · Data Analyst Intern", meta: "Stipend negotiated · closed 12 Jun", status: "✓ Accepted", statusBg: "#C8FF4D", statusFg: "#14121C", total: "₹95k/mo", delta: "+₹8k won", deltaFg: "#3F5209", logoBg: "#FF3D8B", logoFg: "#fff" },
+        { initials: "Rz", role: "Razorpay · APM Intern", meta: "Declined · scope was mislabelled", status: "✕ Declined", statusBg: "#EFE9E0", statusFg: "#5A5468", total: "₹14.2L", delta: "walked away", deltaFg: "#88829B", logoBg: "#6C3BFF", logoFg: "#fff" },
+      ],
+
+      bars: [
+        { label: "12L", tag: "", h: "14%", bg: "#EFE9E0", labelFg: "#88829B" },
+        { label: "14L", tag: "", h: "26%", bg: "#EFE9E0", labelFg: "#88829B" },
+        { label: "16L", tag: "", h: "44%", bg: "#EFE9E0", labelFg: "#88829B" },
+        { label: "18L", tag: "you", h: "62%", bg: "#FFB93D", labelFg: "#A96500" },
+        { label: "21L", tag: "p50", h: "100%", bg: "#6C3BFF", labelFg: "#4A22C4" },
+        { label: "24L", tag: "ask", h: "78%", bg: "#C8FF4D", labelFg: "#3F5209" },
+        { label: "27L", tag: "", h: "46%", bg: "#EFE9E0", labelFg: "#88829B" },
+        { label: "30L", tag: "", h: "24%", bg: "#EFE9E0", labelFg: "#88829B" },
+        { label: "33L", tag: "", h: "10%", bg: "#EFE9E0", labelFg: "#88829B" },
+      ],
+      levers: [
+        { name: "SQL + dbt fluency", val: "+₹2.4L", pct: "82%", fg: "#3F5209", bar: "#C8FF4D" },
+        { name: "Owning instrumentation", val: "+₹1.8L", pct: "68%", fg: "#3F5209", bar: "#C8FF4D" },
+        { name: "Bengaluru vs Pune", val: "+₹1.1L", pct: "44%", fg: "#4A22C4", bar: "#6C3BFF" },
+        { name: "Fresher title band", val: "−₹2.0L", pct: "58%", fg: "#B3005C", bar: "#FF3D8B" },
+      ],
+
+      components: [
+        { abbr: "BASE", name: "Fixed base", note: "paid monthly", value: "₹14,00,000", dot: "#6C3BFF", dotFg: "#fff" },
+        { abbr: "BON", name: "Performance bonus", note: "10% target, not guaranteed", value: "₹1,40,000", dot: "#FFB93D", dotFg: "#14121C" },
+        { abbr: "EQ", name: "Equity (RSU)", note: "4 yrs, 1-yr cliff · ₹0.75L/yr", value: "₹3,00,000", dot: "#38D6FF", dotFg: "#14121C" },
+        { abbr: "JOIN", name: "Joining bonus", note: "clawback if you leave in 12 mo", value: "₹0", dot: "#EFE9E0", dotFg: "#5A5468" },
+        { abbr: "PERK", name: "Wellness + learning", note: "₹40k/yr, use-it-or-lose-it", value: "₹40,000", dot: "#C8FF4D", dotFg: "#14121C" },
+      ],
+      flags: [
+        { icon: "!", title: "The bonus is a target, not a number", note: "₹1.4L of the ₹18.4L headline only lands if the company hits plan. Ask what percentage paid out last year.", bg: "#FFF0F6", border: "#FF3D8B", iconFg: "#B3005C" },
+        { icon: "!", title: "One-year cliff on equity", note: "Leave at month 11 and the ₹3L is worth nothing. That makes the joining bonus more valuable than it looks.", bg: "#FFF6EC", border: "#FFB93D", iconFg: "#A96500" },
+        { icon: "✓", title: "No non-compete, 60-day notice", note: "Standard and fine. Nothing here restricts your next move.", bg: "#F4FBE6", border: "#C8FF4D", iconFg: "#3F5209" },
+      ],
+      leverage: [
+        { mark: "✓", fg: "#C8FF4D", text: "Second live process (Zomato, verbal)" },
+        { mark: "✓", fg: "#C8FF4D", text: "They came to you — inbound recruiter" },
+        { mark: "✓", fg: "#C8FF4D", text: "Offer is ₹2.6L under market median" },
+        { mark: "✕", fg: "#FF3D8B", text: "No competing written offer yet" },
+      ],
+      nonCash: ["₹2L joining bonus", "6-month review", "Learning budget ₹1L", "WFH 3 days", "Earlier start date", "Title: Analyst II"],
+
+      modes: [
+        { id: "write", label: "Write the email" },
+        { id: "roleplay", label: "Practise the call" },
+      ].map((m) => ({
+        label: m.label,
+        bg: st.mode === m.id ? "#6C3BFF" : "#fff",
+        fg: st.mode === m.id ? "#fff" : "#14121C",
+        shadow: st.mode === m.id ? "4px 4px 0 #14121C" : "3px 3px 0 #14121C",
+        onClick: () => this.set("mode", m.id),
+      })),
+      isWrite: st.mode === "write",
+      isRoleplay: st.mode === "roleplay",
+      registerLabel: registerLabels[st.register],
+      scriptBody: bodies[st.register],
+      scriptChars: bodies[st.register].length,
+      cycleRegister: () => this.set("register", REGISTERS[(REGISTERS.indexOf(st.register) + 1) % REGISTERS.length]),
+
+      turns,
+      hasReplies: !!current,
+      replies: current
+        ? current.replies.map((r) => ({
+            text: r.you,
+            onClick: () => this.setState((s) => ({ path: [...s.path, r.id] })),
+          }))
+        : [],
+      isDone: !!debrief,
+      debriefScore: debrief ? debrief.score : 0,
+      debriefVerdict: debrief ? debrief.verdict : "",
+      debriefNotes: debrief ? debrief.notes : [],
+      restart: () => this.set("path", []),
+      objections: [
+        { they: "This is the top of the band for a fresher.", you: "Ask what the band is for the level above, and what it would take to be hired into it. Bands are policy, not physics." },
+        { they: "What are you making right now?", you: "“I'd rather we land on a number based on the scope of this role — what has the team budgeted?” You never owe them your old salary." },
+        { they: "We can't move on base.", you: "Good — that's an opening. Take it to joining bonus, equity refresh, or a six-month review with a written bar." },
+        { they: "This offer expires Friday.", you: "Real deadlines get extended for good candidates. “I want to say yes properly — can we make it Tuesday?” is almost always fine." },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
